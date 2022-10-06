@@ -1,0 +1,21 @@
+Parallel exercise:
+
+parallel.go will ingest each of the csv files in the tmp/testdata directory.
+It will then seek any matching codes. Upon finding one, it will immediately stop.
+
+I used an RWMutex for this as it will allow for concurrent reading, but will only
+allow one writing operation.
+
+I used a channel to send the matching code or any error in the processing to
+stdout.
+
+I used context.WithCancel in the go routines to provide control over the processing.
+
+Compressor exercise:
+
+This one was a hint more complicated. And I created a subdirectory in the compressor
+package to house the interface. The implementation is all in compressor.go. But it should
+tick all of the requirements for the exercise.
+
+Notes:
+For simplicity, these are each set up to run with 'go run \_\_.go' in the parent directory.
